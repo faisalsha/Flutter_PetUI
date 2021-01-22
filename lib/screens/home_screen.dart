@@ -18,7 +18,10 @@ class _HomeScreenState extends State<HomeScreen> {
       transform: Matrix4.translationValues(xOffset, yOffset, 0)
         ..scale(scaleFactor),
       duration: Duration(milliseconds: 300),
-      color: Colors.grey[300],
+      decoration: BoxDecoration(
+        color: Colors.grey[300],
+        borderRadius: BorderRadius.circular(isDrawerOpen ? 40.0 : 0.0),
+      ),
       child: SingleChildScrollView(
         child: Column(
           children: [
@@ -116,7 +119,9 @@ class _HomeScreenState extends State<HomeScreen> {
             GestureDetector(
               onTap: () {
                 Navigator.push(context, MaterialPageRoute(builder: (context) {
-                  return Screen2();
+                  return Screen2(
+                    url: 'images/pet-cat2.png',
+                  );
                 }));
               },
               child: Container(
@@ -158,40 +163,51 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
               ),
             ),
-            Container(
-              height: 230,
-              margin: EdgeInsets.symmetric(horizontal: 20.0),
-              child: Row(
-                children: [
-                  Expanded(
-                      child: Stack(
-                    children: [
-                      Container(
-                        margin: EdgeInsets.only(top: 60.0),
+            GestureDetector(
+              onTap: () {
+                Navigator.push(context, MaterialPageRoute(
+                  builder: (context) {
+                    return Screen2(
+                      url: 'images/pet-cat1.png',
+                    );
+                  },
+                ));
+              },
+              child: Container(
+                height: 230,
+                margin: EdgeInsets.symmetric(horizontal: 20.0),
+                child: Row(
+                  children: [
+                    Expanded(
+                        child: Stack(
+                      children: [
+                        Container(
+                          margin: EdgeInsets.only(top: 60.0),
+                          decoration: BoxDecoration(
+                              color: Colors.orange[100],
+                              borderRadius: BorderRadius.circular(20.0)),
+                        ),
+                        Align(
+                          child: Image.asset('images/pet-cat1.png'),
+                        )
+                      ],
+                    )),
+                    //this is for testing
+                    Expanded(
+                      child: Container(
+                        margin: EdgeInsets.only(top: 70.0, bottom: 20.0),
                         decoration: BoxDecoration(
-                            color: Colors.orange[100],
-                            borderRadius: BorderRadius.circular(20.0)),
-                      ),
-                      Align(
-                        child: Image.asset('images/pet-cat1.png'),
-                      )
-                    ],
-                  )),
-                  //this is for testing
-                  Expanded(
-                    child: Container(
-                      margin: EdgeInsets.only(top: 70.0, bottom: 20.0),
-                      decoration: BoxDecoration(
-                        color: Colors.white,
-                        boxShadow: shadowList,
-                        borderRadius: BorderRadius.only(
-                          topRight: Radius.circular(20.0),
-                          bottomRight: Radius.circular(20.0),
+                          color: Colors.white,
+                          boxShadow: shadowList,
+                          borderRadius: BorderRadius.only(
+                            topRight: Radius.circular(20.0),
+                            bottomRight: Radius.circular(20.0),
+                          ),
                         ),
                       ),
-                    ),
-                  )
-                ],
+                    )
+                  ],
+                ),
               ),
             ),
             SizedBox(
