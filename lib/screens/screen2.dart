@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:pet_UI/configuration.dart';
 
 class Screen2 extends StatelessWidget {
+  final String url;
+  Screen2({this.url});
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -53,7 +55,7 @@ class Screen2 extends StatelessWidget {
               child: Hero(
                 tag: 1,
                 child: Image.asset(
-                  'images/pet-cat2.png',
+                  url,
                   height: 340.0,
                 ),
               ),
